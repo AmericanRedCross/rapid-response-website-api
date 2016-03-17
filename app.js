@@ -16,7 +16,7 @@ var FolderParse = require('./routes/folderParse.js');
 var folderparse = new FolderParse();
 
 app.get('/files',function(req,res,next) {
-		folderparse.retrieveFiles(function(err,list){
+		folderparse.retrieveFiles(function(err,data){
 			res.send(data);
 		})
 })
