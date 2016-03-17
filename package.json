@@ -9,7 +9,6 @@
   "author": "danbjoseph",
   "license": "",
   "dependencies": {
-    "cors": "^2.7.1",
     "express": "^4.13.3",
     "express-handlebars": "^2.0.1",
     "node-dir": "^0.1.11"
