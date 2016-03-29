@@ -14,20 +14,17 @@ app.use(function(req,res,next) {
 var FolderParse = require('./routes/folderParse.js');
 var folderparse = new FolderParse();
 
-app.post('/toolkit',function(req,res,next) {
-    var language = (req.body.language === undefined) ? "en" : req.body.language;
-		folderparse.retrieveToolkit(language, function(err,data){
+app.get('/toolkit/:language',function(req,res,next) {
+		folderparse.retrieveToolkit(req.params.language, function(err,data){
 			res.send(data);
 		})
 })
 
-app.post('/resources',function(req,res,next) {
-    var language = (req.body.language === undefined) ? "en" : req.body.language;
-		folderparse.retrieveToolkit(language, function(err,data){
+app.get('/resources/:language',function(req,res,next) {
+		folderparse.retrieveToolkit(req.params.language, function(err,data){
 			res.send(data);
 		})
 })
-
 
 app.listen(localConfig.application.port, function(){
   console.log('Listening on port '+localConfig.application.port);
