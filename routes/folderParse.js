@@ -25,7 +25,28 @@ FolderParse.prototype.retrieveToolkit = function(language, cb){
   });
 }
 
+FolderParse.prototype.retrieveModalities = function(language, cb){
+  language = 'en' // there are currently only modalities in English
+  dir.files(path.join(localConfig.application.dboxpath,localConfig.application.prjfolder,language,localConfig.application.modalitiesfolder), function(err, files) {
+      if (err) throw err;
+      var list = files;
+      var fileArray = [];
+      for(var i = 0; i < list.length; i++){
+        var fileObject = {
+          "basename" : path.basename(list[i]),
+          "ext": path.extname(list[i]),
+          "dboxpath": path.dirname(list[i]).slice(list[i].indexOf(localConfig.application.modalitiesfolder)),
+          "dboxpathparts": path.dirname(list[i]).slice(list[i].indexOf(localConfig.application.modalitiesfolder)).split(path.sep),
+          "fullpath": list[i]
+        };
+        fileArray.push(fileObject);
+      }
+      cb(err,fileArray);
+  });
+}
+
 FolderParse.prototype.retrieveResources = function(language, cb){
+  language = 'en' // there are currently only additional resoures in English
   dir.files(path.join(localConfig.application.dboxpath,localConfig.application.prjfolder,language,localConfig.application.resourcesfolder), function(err, files) {
       if (err) throw err;
       var list = files;
@@ -34,8 +55,8 @@ FolderParse.prototype.retrieveResources = function(language, cb){
         var fileObject = {
           "basename" : path.basename(list[i]),
           "ext": path.extname(list[i]),
-          "dboxpath": path.dirname(list[i]).slice(list[i].indexOf(localConfig.application.toolkitfolder)),
-          "dboxpathparts": path.dirname(list[i]).slice(list[i].indexOf(localConfig.application.toolkitfolder)).split(path.sep),
+          "dboxpath": path.dirname(list[i]).slice(list[i].indexOf(localConfig.application.resourcesfolder)),
+          "dboxpathparts": path.dirname(list[i]).slice(list[i].indexOf(localConfig.application.resourcesfolder)).split(path.sep),
           "fullpath": list[i]
         };
         fileArray.push(fileObject);

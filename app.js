@@ -20,8 +20,14 @@ app.get('/toolkit/:language',function(req,res,next) {
 		})
 })
 
+app.get('/modalities/:language',function(req,res,next) {
+		folderparse.retrieveModalities(req.params.language, function(err,data){
+			res.send(data);
+		})
+})
+
 app.get('/resources/:language',function(req,res,next) {
-		folderparse.retrieveToolkit(req.params.language, function(err,data){
+		folderparse.retrieveResources(req.params.language, function(err,data){
 			res.send(data);
 		})
 })
