@@ -2,7 +2,7 @@ var settings = {}
 
 settings.application = {
 	port: 3000,
-	prjfolder: "rcmcash.org",
+	prjfolder: "RCM CiE Toolkit Final",
 	toolkitfolder: "1. toolkit",
 	modalitiesfolder: "2. modalities",
 	resourcesfolder: "3. resources",
