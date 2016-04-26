@@ -3,9 +3,9 @@ var settings = {}
 settings.application = {
 	port: 3000,
 	prjfolder: "rcmcash.org",
-	toolkitfolder: "toolkit",
-	modalitiesfolder: "modalities",
-	resourcesfolder: "resources",
+	toolkitfolder: "1. toolkit",
+	modalitiesfolder: "2. modalities",
+	resourcesfolder: "3. resources",
 	dboxpath: "/home/ubuntu/Dropbox"
 }
 
