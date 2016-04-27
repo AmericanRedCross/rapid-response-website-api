@@ -26,7 +26,6 @@ FolderParse.prototype.retrieveToolkit = function(language, cb){
 }
 
 FolderParse.prototype.retrieveModalities = function(language, cb){
-  language = 'en' // there are currently only modalities in English
   dir.files(path.join(localConfig.application.dboxpath,localConfig.application.prjfolder,language,localConfig.application.modalitiesfolder), function(err, files) {
       if (err) throw err;
       var list = files;
