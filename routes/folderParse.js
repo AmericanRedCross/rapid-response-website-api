@@ -45,7 +45,6 @@ FolderParse.prototype.retrieveModalities = function(language, cb){
 }
 
 FolderParse.prototype.retrieveResources = function(language, cb){
-  language = 'en' // there are currently only additional resoures in English
   dir.files(path.join(localConfig.application.dboxpath,localConfig.application.prjfolder,language,localConfig.application.resourcesfolder), function(err, files) {
       if (err) throw err;
       var list = files;
