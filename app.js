@@ -32,6 +32,12 @@ app.get('/resources/:language',function(req,res,next) {
 		})
 })
 
+app.get('/datamanagement/:language',function(req,res,next) {
+		folderparse.retrieveDataManagement(req.params.language, function(err,data){
+			res.send(data);
+		})
+})
+
 app.listen(localConfig.application.port, function(){
   console.log('Listening on port '+localConfig.application.port);
 });

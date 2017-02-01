@@ -63,4 +63,23 @@ FolderParse.prototype.retrieveResources = function(language, cb){
   });
 }
 
+FolderParse.prototype.retrieveDataManagement = function(language, cb){
+  dir.files(path.join(localConfig.application.dboxpath,localConfig.application.prjfolder,language,localConfig.application.datamanagementfolder), function(err, files) {
+      if (err) throw err;
+      var list = files;
+      var fileArray = [];
+      for(var i = 0; i < list.length; i++){
+        var fileObject = {
+          "basename" : path.basename(list[i]),
+          "ext": path.extname(list[i]),
+          "dboxpath": path.dirname(list[i]).slice(list[i].indexOf(localConfig.application.datamanagementfolder)),
+          "dboxpathparts": path.dirname(list[i]).slice(list[i].indexOf(localConfig.application.datamanagementfolder)).split(path.sep),
+          "fullpath": list[i]
+        };
+        fileArray.push(fileObject);
+      }
+      cb(err,fileArray);
+  });
+}
+
 module.exports = FolderParse;
