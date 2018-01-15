@@ -67,6 +67,7 @@ cd ~/Dropbox
 
 ~/utils/dropbox.py exclude add Photos
 ~/utils/dropbox.py exclude add Public
+# etc...
 ```
 - Install Nginx
 ```
@@ -75,11 +76,11 @@ sudo apt-get install nginx
 # looked at 
 # https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-server-blocks-virtual-hosts-on-ubuntu-14-04-lts
 
-sudo vim /etc/nginx/sites-available/webviz
+sudo vim /etc/nginx/sites-available/custom
 
 # see example nginx settings in `nginx.example` file
 
-sudo ln -s /etc/nginx/sites-available/webviz /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/custom /etc/nginx/sites-enabled/
 sudo rm /etc/nginx/sites-enabled/default
 sudo vim /etc/nginx/nginx.conf
 
