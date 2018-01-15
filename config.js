@@ -6,8 +6,8 @@ settings.application = {
 	websitefolder: "Website",
 	additionalfolder: "Additional",
 	essentialsfolder: "Essentials",
-	dboxpath: "/Users/danbjoseph/Dropbox (Personal)" // local path for testing
-	// dboxpath: "/home/ubuntu/Dropbox"
+	// dboxpath: "/Users/danbjoseph/Dropbox (Personal)" // local path for testing
+	dboxpath: "/home/ubuntu/Dropbox"
 }
 
 module.exports = settings;
