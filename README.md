@@ -1,4 +1,4 @@
-Serves up the current contents of a dropbox to populate sections of a CiE toolkit website. A similiar [api script](https://github.com/AmericanRedCross/sims-website-api) is used for the [SIMS website](https://github.com/AmericanRedCross/sims-website).
+Serves up the current contents of a dropbox to populate sections of an ENA toolkit website. Similar api scripts are used for the Cash in Emergencies Website ([api](https://github.com/AmericanRedCross/ctp-website-api), [website](https://github.com/AmericanRedCross/ctp-website)) and SIMS website ([api](https://github.com/AmericanRedCross/sims-website-api), [website](https://github.com/AmericanRedCross/sims-website)).
 
 __Some guidance on setup:__
 - I use an Ubuntu server running on Amazon Web Services EC2
