@@ -2,11 +2,10 @@ var settings = {}
 
 settings.application = {
 	port: 3000,
-	prjfolder: "RCM CiE Toolkit Final",
-	toolkitfolder: "1. toolkit",
-	modalitiesfolder: "2. modalities",
-	resourcesfolder: "3. resources",
-	datamanagementfolder: "4. data management",
+	prjfolder: "15. ENA Toolbox",
+	websitefolder: "Website",
+	additionalfolder: "Additional",
+	// dboxpath: "/Users/danbjoseph/Dropbox (Personal)" // local path for testing
 	dboxpath: "/home/ubuntu/Dropbox"
 }
 

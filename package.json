@@ -1,5 +1,5 @@
 {
-  "name": "sims-website-api",
+  "name": "ena-website-api",
   "version": "0.0.1",
   "description": "",
   "main": "app.js",
@@ -9,8 +9,7 @@
   "author": "danbjoseph",
   "license": "",
   "dependencies": {
-    "express": "^4.13.3",
-    "express-handlebars": "^2.0.1",
-    "node-dir": "^0.1.11"
+    "express": "^4.16.2",
+    "node-dir": "^0.1.17"
   }
 }

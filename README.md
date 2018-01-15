@@ -6,9 +6,9 @@ __Some guidance on setup:__
 - Clone the repo and install dependencies
 ```
 cd ~
-git clone https://github.com/AmericanRedCross/ctp-website-api.git
-cd ctp-website-api
-nvm install 6.10.3
+git clone https://github.com/AmericanRedCross/ena-website-api.git
+cd ena-website-api
+nvm install 8.9.4
 nvm use
 npm install
 ```
@@ -97,8 +97,8 @@ sudo service nginx restart
 cd ~ 
 nvm use default
 npm install -g pm2
-cd ctp-website-api
-pm2 start app.js --name="ctp_3000" --interpreter=/home/ubuntu/.nvm/versions/node/v6.10.3/bin/node
+cd ena-website-api
+pm2 start app.js --name="ena_3000" --interpreter=/home/ubuntu/.nvm/versions/node/v8.9.4/bin/node
 pm2 startup # run once to generate startup script
 pm2 save
 ```
