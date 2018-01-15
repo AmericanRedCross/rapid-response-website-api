@@ -92,10 +92,10 @@ sudo service nginx restart
 - Use [PM2](https://github.com/Unitech/pm2) to keep the api script running even after you logout from the server
 ```
 cd ~ 
-nvm use default
 npm install -g pm2
 cd ena-website-api
 pm2 start app.js --name="ena_3000" --interpreter=/home/ubuntu/.nvm/versions/node/v8.9.4/bin/node
 pm2 startup # run once to generate startup script
+# need to copy/paste/run the command it gives you
 pm2 save
 ```
