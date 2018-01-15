@@ -2,6 +2,8 @@ Serves up the current contents of a dropbox to populate sections of an ENA toolk
 
 __Some guidance on setup:__
 - I use an Ubuntu server running on Amazon Web Services EC2
+  - Ubuntu 16.04; t2.micro; 30GB root volume; security rules for `SSH` and `HTTP`; assigned an Elastic IP after launching
+- when connecting, if using a pem key, the first time you'll probably need to first run `chmod 400 my-key.pem`
 - I suggest [installing](https://github.com/creationix/nvm#install-script) `nvm` to manage node versions, especially if you may be running different apps on the same server
 - Clone the repo and install dependencies
 ```
@@ -14,6 +16,10 @@ npm install
 ```
 - Install [Dropbox](https://www.dropbox.com/install-linux) for Linux
 ```
+
+sudo apt install python
+#  Ubuntu 16.04 comes by default with Python 3.5.1 installed as the python3 binary. Python 2 is still installable using the python package.
+
 uname -m
 
 # should show 
@@ -23,9 +29,10 @@ cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
 mkdir ~/utils
 wget -O ~/utils/dropbox.py "http://www.dropbox.com/download?dl=packages/dropbox.py"
 chmod 755 ~/utils/dropbox.py
-wget -O ~/utils/dropbox_temp "https://gist.githubusercontent.com/brandonb927/a0b33ecbe6fa8337b0b4/raw/ebf643c1dbcaf0d5f4a353e6621f315485438f36/dropbox"
 
-# above line downloads this https://gist.github.com/brandonb927/a0b33ecbe6fa8337b0b4
+wget -O ~/utils/dropbox_temp "https://gist.githubusercontent.com/danbjoseph/87a78208eb30c336e2927bd6bf05d970/raw/7ed00d8d698f16595bca1af81f06521e94242391/dropbox"
+
+# above line downloads this https://gist.github.com/danbjoseph/87a78208eb30c336e2927bd6bf05d970
 
 ~/.dropbox-dist/dropboxd
 
@@ -38,23 +45,12 @@ wget -O ~/utils/dropbox_temp "https://gist.githubusercontent.com/brandonb927/a0b
 
 sudo vim ~/utils/dropbox_temp
 
-# edit the script and replace "username" with your server username not your Dropbox account
+# edit the script and replace "username" with your server username not your Dropbox account, e.g. `ubuntu`
 
 sudo mv ~/utils/dropbox_temp /etc/init.d/dropbox
 sudo chmod +x /etc/init.d/dropbox
 sudo update-rc.d dropbox defaults
 
-# should show messages something like:
-# > `update-rc.d: warning: /etc/init.d/dropbox missing LSB information`   
-# > `update-rc.d: see <http://wiki.debian.org/LSBInitScripts>`   
-# > `Adding system startup for /etc/init.d/dropbox ...`   
-# > `/etc/rc0.d/K20dropbox -> ../init.d/dropbox`   
-# > `/etc/rc1.d/K20dropbox -> ../init.d/dropbox`   
-# > `/etc/rc6.d/K20dropbox -> ../init.d/dropbox`   
-# > `/etc/rc2.d/S20dropbox -> ../init.d/dropbox`   
-# > `/etc/rc3.d/S20dropbox -> ../init.d/dropbox`   
-# > `/etc/rc4.d/S20dropbox -> ../init.d/dropbox`   
-# > `/etc/rc5.d/S20dropbox -> ../init.d/dropbox`  
 
 sudo service dropbox status
 
