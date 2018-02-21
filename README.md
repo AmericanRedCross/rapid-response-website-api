@@ -15,6 +15,7 @@ nvm use
 npm install
 ```
 - Install [Dropbox](https://www.dropbox.com/install-linux) for Linux
+- Used this [article](http://www.dropboxwiki.com/tips-and-tricks/install-dropbox-in-an-entirely-text-based-linux-environment) to inform the following
 ```
 
 sudo apt install python
@@ -25,49 +26,52 @@ uname -m
 # should show 
 # > `x86_64`
 
-cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
-mkdir ~/utils
-wget -O ~/utils/dropbox.py "http://www.dropbox.com/download?dl=packages/dropbox.py"
-chmod 755 ~/utils/dropbox.py
+cd
+wget -O dropbox.tar.gz "http://www.dropbox.com/download/?plat=lnx.x86_64"
+tar -tzf dropbox.tar.gz
+tar -xvzf dropbox.tar.gz
 
-wget -O ~/utils/dropbox_temp "https://gist.githubusercontent.com/danbjoseph/87a78208eb30c336e2927bd6bf05d970/raw/7ed00d8d698f16595bca1af81f06521e94242391/dropbox"
+# Make sure the LANG environment variable 
+# is set to something other than NULL, 
+# e.g. en_US.iso88591. If it is NULL, 
+# you’ll get a cryptic error.
+echo $LANG
 
-# above line downloads this https://gist.github.com/danbjoseph/87a78208eb30c336e2927bd6bf05d970
-
+# run dropboxd
 ~/.dropbox-dist/dropboxd
 
 # should give a message like this:
 # > `This computer isn't linked to any Dropbox account...`    
 # > `Please visit {{link}} to link this device.`
+
 # after visiting the link and following the instructions should see:
 # > `This computer is now linked to Dropbox. Welcome {{name}}`
 # kill the daemon with a `Ctrl`+`C`
 
-sudo vim ~/utils/dropbox_temp
+crontab -e
+# add the following line
+@reboot $HOME/.dropbox-dist/dropboxd
+# save and close the file
 
-# edit the script and replace "username" with your server username not your Dropbox account, e.g. `ubuntu`
+mkdir -p ~/bin  
+wget -O ~/bin/dropbox.py "http://www.dropbox.com/download?dl=packages/dropbox.py"  
+chmod 755 ~/bin/dropbox.py  
+~/bin/dropbox.py help
+~/bin/dropbox.py status
+cd ~/Dropbox # this command is important
 
-sudo mv ~/utils/dropbox_temp /etc/init.d/dropbox
-sudo chmod +x /etc/init.d/dropbox
-sudo update-rc.d dropbox defaults
-
-
-sudo service dropbox status
-
-# if not running, start it with 
-
-sudo service dropbox start
-
-~/utils/dropbox.py status
-cd ~/Dropbox
-~/utils/dropbox.py ls 
+~/bin/dropbox.py ls 
 
 # should list all your dropbox folders
 # you can exclude ones you don't want to sync with the following
 
-~/utils/dropbox.py exclude add Photos
-~/utils/dropbox.py exclude add Public
+~/bin/dropbox.py exclude add Photos
+~/bin/dropbox.py exclude add Public
 # etc...
+
+# reboot your server
+# check that dropbox is running
+~/bin/dropbox.py status
 ```
 - Install Nginx
 ```
