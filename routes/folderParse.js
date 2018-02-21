@@ -13,7 +13,7 @@ var FolderParse = function(){
 };
 
 FolderParse.prototype.retrieveEssentials = function(cb){
-  dir.files(path.join(localConfig.application.dboxpath,localConfig.application.prjfolder,localConfig.application.websitefolder,localConfig.application.essentialsfolder),function(err,files){
+  dir.files(path.join(localConfig.application.dboxpath,localConfig.application.prjfolder,localConfig.application.essentialsfolder),function(err,files){
       if (err) throw err;
       var list = files;
       var fileArray = [];
@@ -34,7 +34,7 @@ FolderParse.prototype.retrieveEssentials = function(cb){
 }
 
 FolderParse.prototype.retrieveAdditional = function(cb){
-  dir.files(path.join(localConfig.application.dboxpath,localConfig.application.prjfolder,localConfig.application.websitefolder,localConfig.application.additionalfolder),function(err,files){
+  dir.files(path.join(localConfig.application.dboxpath,localConfig.application.prjfolder,localConfig.application.additionalfolder),function(err,files){
       if (err) throw err;
       var list = files;
       var fileArray = [];

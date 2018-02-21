@@ -3,7 +3,7 @@ var path = require('path');
 var localConfig = require('./config');
 var app = express();
 
-app.use('/docs', express.static(path.join(localConfig.application.dboxpath,localConfig.application.prjfolder,localConfig.application.websitefolder)));
+app.use('/docs', express.static(path.join(localConfig.application.dboxpath,localConfig.application.prjfolder)));
 
 app.use(function(req,res,next){
   res.header("Access-Control-Allow-Origin", "*");
