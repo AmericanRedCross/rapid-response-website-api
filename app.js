@@ -14,14 +14,14 @@ app.use(function(req,res,next){
 var FolderParse = require('./routes/folderParse.js');
 var folderparse = new FolderParse();
 
-app.get('/essentials',function(req,res,next){
-		folderparse.retrieveEssentials(function(err,data){
+app.get('/essentials/:language',function(req,res,next){
+		folderparse.retrieveEssentials(req.params.language,function(err,data){
 			res.send(data);
 		});
 })
 
-app.get('/additional',function(req,res,next){
-		folderparse.retrieveAdditional(function(err,data){
+app.get('/additional/:language',function(req,res,next){
+		folderparse.retrieveAdditional(req.params.language,function(err,data){
 			res.send(data);
 		});
 })

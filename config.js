@@ -5,8 +5,9 @@ settings.application = {
 	prjfolder: "15. ENA Toolbox",
 	additionalfolder: "2. additional",
 	essentialsfolder: "1. essentials",
+ 	dboxpath: "/home/intern2/Dropbox (Personal)" // local path for testing
 	// dboxpath: "/Users/danbjoseph/Dropbox (Personal)" // local path for testing
-	dboxpath: "/home/ubuntu/Dropbox"
+	//dboxpath: "/home/ubuntu/Dropbox"
 }
 
 module.exports = settings;

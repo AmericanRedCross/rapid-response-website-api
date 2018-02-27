@@ -12,8 +12,8 @@ var FolderParse = function(){
 
 };
 
-FolderParse.prototype.retrieveEssentials = function(cb){
-  dir.files(path.join(localConfig.application.dboxpath,localConfig.application.prjfolder,localConfig.application.essentialsfolder),function(err,files){
+FolderParse.prototype.retrieveEssentials = function(language,cb){
+  dir.files(path.join(localConfig.application.dboxpath,localConfig.application.prjfolder,language,localConfig.application.essentialsfolder),function(err,files){
       if (err) throw err;
       var list = files;
       var fileArray = [];
@@ -21,8 +21,8 @@ FolderParse.prototype.retrieveEssentials = function(cb){
         var fileObject = {
           "basename" : path.basename(list[i]),
           "ext": path.extname(list[i]),
-          "dboxpath": path.dirname(list[i]).slice(list[i].indexOf(localConfig.application.prjfolder)),
-          "dboxpathparts": path.dirname(list[i]).slice(list[i].indexOf(localConfig.application.prjfolder)).split(path.sep),
+          "dboxpath": path.dirname(list[i]).slice(list[i].indexOf(localConfig.application.essentialsfolder)),
+          "dboxpathparts": path.dirname(list[i]).slice(list[i].indexOf(localConfig.application.essentialsfolder)).split(path.sep),
           "fullpath": list[i]
         };
         if(systemFile(path.basename(list[i])) === false){
@@ -33,8 +33,8 @@ FolderParse.prototype.retrieveEssentials = function(cb){
   });
 }
 
-FolderParse.prototype.retrieveAdditional = function(cb){
-  dir.files(path.join(localConfig.application.dboxpath,localConfig.application.prjfolder,localConfig.application.additionalfolder),function(err,files){
+FolderParse.prototype.retrieveAdditional = function(language,cb){
+  dir.files(path.join(localConfig.application.dboxpath,localConfig.application.prjfolder,language,localConfig.application.additionalfolder),function(err,files){
       if (err) throw err;
       var list = files;
       var fileArray = [];
@@ -42,8 +42,8 @@ FolderParse.prototype.retrieveAdditional = function(cb){
         var fileObject = {
           "basename" : path.basename(list[i]),
           "ext": path.extname(list[i]),
-          "dboxpath": path.dirname(list[i]).slice(list[i].indexOf(localConfig.application.prjfolder)),
-          "dboxpathparts": path.dirname(list[i]).slice(list[i].indexOf(localConfig.application.prjfolder)).split(path.sep),
+          "dboxpath": path.dirname(list[i]).slice(list[i].indexOf(localConfig.application.additionalfolder)),
+          "dboxpathparts": path.dirname(list[i]).slice(list[i].indexOf(localConfig.application.additionalfolder)).split(path.sep),
           "fullpath": list[i]
         };
         fileArray.push(fileObject);
