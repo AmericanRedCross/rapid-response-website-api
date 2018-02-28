@@ -5,7 +5,6 @@ settings.application = {
 	prjfolder: "15. ENA Toolbox",
 	additionalfolder: "2. additional",
 	essentialsfolder: "1. essentials",
-
 	// dboxpath: "/Users/danbjoseph/Dropbox (Personal)" // local path for testing
 	dboxpath: "/home/ubuntu/Dropbox"
 }
