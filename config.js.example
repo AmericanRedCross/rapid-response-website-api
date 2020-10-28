@@ -6,8 +6,9 @@ var settings = {}
 
 settings.application = {
 	port: 3000,
-	prjfolder: "",
-	dboxpath: ""
+	prjfolder: "Operational Timeline Toolbox",
+	resourcefolder: "Templates and Resources",
+	dboxpath: "/path/to/Dropbox"
 }
 
 module.exports = settings;
