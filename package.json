@@ -9,7 +9,7 @@
   "author": "danbjoseph",
   "license": "",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "node-dir": "^0.1.17"
   }
 }
